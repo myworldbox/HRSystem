@@ -39,42 +39,34 @@ public class ValidationHelper
         }
     }
 
-    public class DateAfterProperty : ValidationAttribute
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+    public class AttrRange : ValidationAttribute
     {
-        private readonly string _otherProperty;
+        private readonly string? _lower, _upper;
 
-        public DateAfterProperty(string otherProperty)
+        public AttrRange(string lower, string? upper = null)
         {
-            _otherProperty = otherProperty;
-            ErrorMessage = $"It must be after the {_otherProperty}.";
+            _lower = lower;
+            _upper = upper;
         }
 
-        protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
+        protected override ValidationResult? IsValid(object? value, ValidationContext ctx)
         {
-            if (value is DateOnly date)
-            {
-                var otherPropertyInfo = validationContext.ObjectType.GetProperty(_otherProperty);
-                if (otherPropertyInfo == null)
-                {
-                    return new ValidationResult($"Unknown property {_otherProperty}.");
-                }
+            if (value is not IComparable v) return ValidationResult.Success;
 
-                var otherValue = otherPropertyInfo.GetValue(validationContext.ObjectInstance);
-                if (otherValue is DateOnly otherDate)
-                {
-                    if (date <= otherDate)
-                    {
-                        return new ValidationResult(ErrorMessage);
-                    }
-                }
-                else
-                {
-                    return new ValidationResult($"Invalid date format for {_otherProperty}.");
-                }
-            }
-            else if (value != null)
+            object? lo = string.IsNullOrEmpty(_lower) ? null : ctx.ObjectType.GetProperty(_lower)?.GetValue(ctx.ObjectInstance);
+            object? hi = string.IsNullOrEmpty(_upper) ? null : ctx.ObjectType.GetProperty(_upper)?.GetValue(ctx.ObjectInstance);
+
+            bool below = lo is IComparable l && v.GetType() == l.GetType() && v.CompareTo(l) < 0;
+            bool above = hi is IComparable h && v.GetType() == h.GetType() && v.CompareTo(h) > 0;
+
+            if (below || above)
             {
-                return new ValidationResult("Invalid date format.");
+                string msg = _lower != null && _upper != null && lo != null && hi != null
+                    ? $"{ctx.MemberName} must be between {_lower} ({lo}) and {_upper} ({hi})."
+                    : below ? $"{ctx.MemberName} must be ≥ {_lower} ({lo})."
+                    : $"{ctx.MemberName} must be ≤ {_upper} ({hi}).";
+                return new ValidationResult(msg);
             }
 
             return ValidationResult.Success;

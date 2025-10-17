@@ -32,7 +32,7 @@ public record ContractViewModel
 
     [DataType(DataType.Date)]
     [Display(Name = "End Date")]
-    [DateAfterProperty(nameof(StartDate))]
+    [AttrRange(nameof(StartDate))]
     public DateOnly EndDate { get; set; }
     public Position Position { get; set; }
 
@@ -43,7 +43,7 @@ public record ContractViewModel
 
     [DataType(DataType.Date)]
     [Display(Name = "Cessation Date")]
-    [DateAfterProperty(nameof(StartDate))]
+    [AttrRange(nameof(StartDate), nameof(EndDate))]
     public DateOnly? CessationDate { get; set; }
     public Status Status { get; set; }
 

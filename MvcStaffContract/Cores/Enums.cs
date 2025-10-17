@@ -27,9 +27,13 @@ public class Enums {
 
     public enum Dialog
     {
-        success, 
-        info, 
+        primary,
+        secondary,
+        success,
+        danger,
         warning,
-        danger
+        info,
+        light,
+        dark
     }
 }
