@@ -151,6 +151,11 @@ public class ContractController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int id)
     {
+        try {
+
+        }
+        catch (Exception e) {
+        }
         var contract = await _contractRepository.GetByIdAsync(id);
         await _contractRepository.DeleteAsync(id);
         await _contractRepository.SaveChangesAsync();

@@ -43,6 +43,7 @@ public record ContractViewModel
 
     [DataType(DataType.Date)]
     [Display(Name = "Cessation Date")]
+    [DateAfterProperty(nameof(StartDate))]
     public DateOnly? CessationDate { get; set; }
     public Status Status { get; set; }
 
