@@ -1,0 +1,223 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|c:\\users\\victorleung\\desktop\\twgh\\mvcstaffcontract\\mvcstaffcontract\\helpers\\validationhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|solutionrelative:mvcstaffcontract\\helpers\\validationhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|c:\\users\\victorleung\\desktop\\twgh\\mvcstaffcontract\\mvcstaffcontract\\viewmodels\\contractviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|solutionrelative:mvcstaffcontract\\viewmodels\\contractviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|c:\\users\\victorleung\\desktop\\twgh\\mvcstaffcontract\\mvcstaffcontract\\controllers\\contractcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|solutionrelative:mvcstaffcontract\\controllers\\contractcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|c:\\users\\victorleung\\desktop\\twgh\\mvcstaffcontract\\mvcstaffcontract\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|solutionrelative:mvcstaffcontract\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|c:\\users\\victorleung\\desktop\\twgh\\mvcstaffcontract\\mvcstaffcontract\\views\\contract\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|solutionrelative:mvcstaffcontract\\views\\contract\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|c:\\users\\victorleung\\desktop\\twgh\\mvcstaffcontract\\mvcstaffcontract\\controllers\\staffcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|solutionrelative:mvcstaffcontract\\controllers\\staffcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|c:\\users\\victorleung\\desktop\\twgh\\mvcstaffcontract\\mvcstaffcontract\\views\\staff\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|solutionrelative:mvcstaffcontract\\views\\staff\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|c:\\users\\victorleung\\desktop\\twgh\\mvcstaffcontract\\mvcstaffcontract\\views\\contract\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|solutionrelative:mvcstaffcontract\\views\\contract\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|c:\\users\\victorleung\\desktop\\twgh\\mvcstaffcontract\\mvcstaffcontract\\views\\shared\\dialog.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|solutionrelative:mvcstaffcontract\\views\\shared\\dialog.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|c:\\users\\victorleung\\desktop\\twgh\\mvcstaffcontract\\mvcstaffcontract\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|solutionrelative:mvcstaffcontract\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|c:\\users\\victorleung\\desktop\\twgh\\mvcstaffcontract\\mvcstaffcontract\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|solutionrelative:mvcstaffcontract\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|c:\\users\\victorleung\\desktop\\twgh\\mvcstaffcontract\\mvcstaffcontract\\cores\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D60F39-D300-4DE6-9FDE-7C664191E13B}|MvcStaffContract\\MvcStaffContract.csproj|solutionrelative:mvcstaffcontract\\cores\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\Views\\Contract\\Create.cshtml",
+              "RelativeDocumentMoniker": "MvcStaffContract\\Views\\Contract\\Create.cshtml",
+              "ToolTip": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\Views\\Contract\\Create.cshtml",
+              "RelativeToolTip": "MvcStaffContract\\Views\\Contract\\Create.cshtml",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAqwEQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-17T02:23:05.704Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ValidationHelper.cs",
+              "DocumentMoniker": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\Helpers\\ValidationHelper.cs",
+              "RelativeDocumentMoniker": "MvcStaffContract\\Helpers\\ValidationHelper.cs",
+              "ToolTip": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\Helpers\\ValidationHelper.cs",
+              "RelativeToolTip": "MvcStaffContract\\Helpers\\ValidationHelper.cs",
+              "ViewState": "AQIAAFMAAAAAAAAAAAA4wGgAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T02:02:41.998Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ContractViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\ViewModels\\ContractViewModel.cs",
+              "RelativeDocumentMoniker": "MvcStaffContract\\ViewModels\\ContractViewModel.cs",
+              "ToolTip": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\ViewModels\\ContractViewModel.cs",
+              "RelativeToolTip": "MvcStaffContract\\ViewModels\\ContractViewModel.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAjwCgAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T01:07:17.041Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\Repositories\\Repository.cs",
+              "RelativeDocumentMoniker": "MvcStaffContract\\Repositories\\Repository.cs",
+              "ToolTip": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\Repositories\\Repository.cs",
+              "RelativeToolTip": "MvcStaffContract\\Repositories\\Repository.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAgwEQAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T01:21:38.445Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\Views\\Shared\\Error.cshtml",
+              "RelativeDocumentMoniker": "MvcStaffContract\\Views\\Shared\\Error.cshtml",
+              "ToolTip": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\Views\\Shared\\Error.cshtml",
+              "RelativeToolTip": "MvcStaffContract\\Views\\Shared\\Error.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-17T01:13:26.994Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "StaffController.cs",
+              "DocumentMoniker": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\Controllers\\StaffController.cs",
+              "RelativeDocumentMoniker": "MvcStaffContract\\Controllers\\StaffController.cs",
+              "ToolTip": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\Controllers\\StaffController.cs",
+              "RelativeToolTip": "MvcStaffContract\\Controllers\\StaffController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T01:07:29.645Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\Views\\Staff\\Index.cshtml",
+              "RelativeDocumentMoniker": "MvcStaffContract\\Views\\Staff\\Index.cshtml",
+              "ToolTip": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\Views\\Staff\\Index.cshtml",
+              "RelativeToolTip": "MvcStaffContract\\Views\\Staff\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-17T01:03:25.468Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "MvcStaffContract\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "MvcStaffContract\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-17T00:57:22.267Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Dialog.cshtml",
+              "DocumentMoniker": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\Views\\Shared\\Dialog.cshtml",
+              "RelativeDocumentMoniker": "MvcStaffContract\\Views\\Shared\\Dialog.cshtml",
+              "ToolTip": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\Views\\Shared\\Dialog.cshtml",
+              "RelativeToolTip": "MvcStaffContract\\Views\\Shared\\Dialog.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-17T00:55:54.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ContractController.cs",
+              "DocumentMoniker": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\Controllers\\ContractController.cs",
+              "RelativeDocumentMoniker": "MvcStaffContract\\Controllers\\ContractController.cs",
+              "ToolTip": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\Controllers\\ContractController.cs",
+              "RelativeToolTip": "MvcStaffContract\\Controllers\\ContractController.cs",
+              "ViewState": "AQIAAG0AAAAAAAAAAAAvwHUAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T00:51:31.813Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\Views\\Contract\\Index.cshtml",
+              "RelativeDocumentMoniker": "MvcStaffContract\\Views\\Contract\\Index.cshtml",
+              "ToolTip": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\Views\\Contract\\Index.cshtml",
+              "RelativeToolTip": "MvcStaffContract\\Views\\Contract\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-15T06:47:57.677Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Enums.cs",
+              "DocumentMoniker": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\Cores\\Enums.cs",
+              "RelativeDocumentMoniker": "MvcStaffContract\\Cores\\Enums.cs",
+              "ToolTip": "C:\\Users\\VictorLeung\\Desktop\\twgh\\MvcStaffContract\\MvcStaffContract\\Cores\\Enums.cs",
+              "RelativeToolTip": "MvcStaffContract\\Cores\\Enums.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T06:17:30.245Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
