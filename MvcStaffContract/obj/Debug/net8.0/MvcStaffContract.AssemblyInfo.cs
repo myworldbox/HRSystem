@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MvcStaffContract")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+10343c29fb41d5e57846f79f4eabc53099275066")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3db41ef1e5c390c159f8811ed1cce75d2946dcbe")]
 [assembly: System.Reflection.AssemblyProductAttribute("MvcStaffContract")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MvcStaffContract")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
