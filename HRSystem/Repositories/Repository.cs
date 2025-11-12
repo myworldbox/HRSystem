@@ -7,10 +7,10 @@ namespace HRSystem.Repositories;
 
 public class Repository<T> : IRepository<T> where T : class
 {
-    private readonly StaffContractsDbContext _context;
+    private readonly HRSystemContext _context;
     private readonly DbSet<T> _dbSet;
 
-    public Repository(StaffContractsDbContext context)
+    public Repository(HRSystemContext context)
     {
         _context = context;
         _dbSet = _context.Set<T>();
@@ -55,7 +55,7 @@ public class Repository<T> : IRepository<T> where T : class
 // Specialized repository for Contract
 public class ContractRepository : Repository<ContractModel>, IContractRepository
 {
-    public ContractRepository(StaffContractsDbContext context) : base(context) { }
+    public ContractRepository(HRSystemContext context) : base(context) { }
 
     // Add contract-specific methods here if needed
 }
@@ -63,7 +63,7 @@ public class ContractRepository : Repository<ContractModel>, IContractRepository
 // Specialized repository for Staff
 public class StaffRepository : Repository<StaffModel>, IStaffRepository
 {
-    public StaffRepository(StaffContractsDbContext context) : base(context) { }
+    public StaffRepository(HRSystemContext context) : base(context) { }
 
     // Add staff-specific methods here if needed
 }

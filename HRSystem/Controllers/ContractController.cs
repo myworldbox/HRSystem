@@ -8,9 +8,11 @@ using HRSystem.Repositories;
 using HRSystem.ViewModels;
 using System.Text.Json;
 using static HRSystem.Cores.Enums;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HRSystem.Controllers;
 
+[Authorize]
 [OutputCache(PolicyName = "OutputCacheWithVaryByQuery")]
 public class ContractController : Controller
 {
