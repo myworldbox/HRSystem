@@ -1,0 +1,60 @@
+﻿@using HRSystem.Application.ViewModels
+@model (IEnumerable<ContractViewModel>? cvm, DialogViewModel dvm)
+
+@{
+    ViewData["Title"] = "Index";
+    var sample = Model.cvm?.FirstOrDefault() ?? new ContractViewModel();
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(_ => sample.ContractNumber)</th>
+            <th>@Html.DisplayNameFor(_ => sample.StaffNo)</th>
+            <th>@Html.DisplayNameFor(_ => sample.StartDate)</th>
+            <th>@Html.DisplayNameFor(_ => sample.EndDate)</th>
+            <th>@Html.DisplayNameFor(_ => sample.Position)</th>
+            <th>@Html.DisplayNameFor(_ => sample.Salary)</th>
+            <th>@Html.DisplayNameFor(_ => sample.CessationDate)</th>
+            <th>@Html.DisplayNameFor(_ => sample.Status)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.cvm != null && Model.cvm.Any())
+        {
+            foreach (var item in Model.cvm)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.ContractNumber)</td>
+                    <td>@Html.DisplayFor(modelItem => item.StaffNo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.StartDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.EndDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Position)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Salary)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CessationDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="9" class="text-center text-muted">No contracts found.</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@await Html.PartialAsync("Dialog", Model.dvm)
