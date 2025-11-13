@@ -8,13 +8,9 @@ public class MappingHelper : Profile
 {
     public MappingHelper()
     {
-        CreateMap<StaffModel, StaffViewModel>();
-        CreateMap<StaffViewModel, StaffModel>();
+        CreateMap<Staff, StaffViewModel>().ReverseMap();
 
-        CreateMap<StaffViewModel, StaffModel>()
-            .ForMember(dest => dest.Address, opt => opt.MapFrom(src => AddressHelper.CombineAddress(src.Address1, src.Address2, src.Address3, src.Address4)));
-
-        CreateMap<StaffModel, StaffViewModel>()
+        CreateMap<Staff, StaffViewModel>()
             .AfterMap((src, dest) =>
             {
                 var span = AddressHelper.SplitAddress(src.Address);
@@ -22,9 +18,10 @@ public class MappingHelper : Profile
                 dest.Address2 = span.Length > 1 ? span[1] : null;
                 dest.Address3 = span.Length > 2 ? span[2] : null;
                 dest.Address4 = span.Length > 3 ? span[3] : null;
-            });
+            })
+            .ReverseMap()
+            .ForMember(dest => dest.Address, opt => opt.MapFrom(src => AddressHelper.CombineAddress(src.Address1, src.Address2, src.Address3, src.Address4)));
 
-        CreateMap<ContractModel, ContractViewModel>();
-        CreateMap<ContractViewModel, ContractModel>();
+        CreateMap<Contract, ContractViewModel>().ReverseMap();
     }
 }

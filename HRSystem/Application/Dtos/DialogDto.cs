@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using static HRSystem.Domain.Enums;
 using static HRSystem.Application.Helpers.ValidationHelper;
 
-namespace HRSystem.Application.ViewModels;
+namespace HRSystem.Application.Dtos;
 
 public record DialogDto
 {

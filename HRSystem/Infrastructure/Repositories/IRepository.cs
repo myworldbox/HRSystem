@@ -19,10 +19,10 @@ public interface IRepository<T> where T : class
     Task<int> SaveChangesAsync();
 }
 
-public interface IContractRepository : IRepository<ContractModel>
+public interface IContractRepository : IRepository<Contract>
 {
 }
 
-public interface IStaffRepository : IRepository<StaffModel>
+public interface IStaffRepository : IRepository<Staff>
 {
 }

@@ -53,7 +53,7 @@ public class Repository<T> : IRepository<T> where T : class
 }
 
 // Specialized repository for Contract
-public class ContractRepository : Repository<ContractModel>, IContractRepository
+public class ContractRepository : Repository<Contract>, IContractRepository
 {
     public ContractRepository(HRSystemContext context) : base(context) { }
 
@@ -61,7 +61,7 @@ public class ContractRepository : Repository<ContractModel>, IContractRepository
 }
 
 // Specialized repository for Staff
-public class StaffRepository : Repository<StaffModel>, IStaffRepository
+public class StaffRepository : Repository<Staff>, IStaffRepository
 {
     public StaffRepository(HRSystemContext context) : base(context) { }
 

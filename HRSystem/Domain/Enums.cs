@@ -26,6 +26,13 @@ public class Enums
         HRAssistant
     }
 
+    public enum Role
+    {
+        Clerical,
+        Supervisor,
+        Manager
+    }
+
     public enum Dialog
     {
         primary,

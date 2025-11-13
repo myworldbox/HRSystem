@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace HRSystem.Domain.Entities;
 
 [Table("Contract")]
-public partial class ContractModel
+public partial class Contract
 {
     [Key]
     public int? Id { get; set; }
@@ -34,5 +34,5 @@ public partial class ContractModel
 
     [ForeignKey("StaffNo")]
     [InverseProperty("Contracts")]
-    public virtual StaffModel StaffNoNavigation { get; set; } = null!;
+    public virtual Staff StaffNoNavigation { get; set; } = null!;
 }

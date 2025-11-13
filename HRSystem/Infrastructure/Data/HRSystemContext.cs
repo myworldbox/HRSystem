@@ -17,9 +17,9 @@ public partial class HRSystemContext : IdentityDbContext
     {
     }
 
-    public virtual DbSet<ContractModel> Contract { get; set; }
+    public virtual DbSet<Contract> Contract { get; set; }
 
-    public virtual DbSet<StaffModel> Staff { get; set; }
+    public virtual DbSet<Staff> Staff { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Name=HRSystemContext");
@@ -28,13 +28,13 @@ public partial class HRSystemContext : IdentityDbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<ContractModel>(entity =>
+        modelBuilder.Entity<Contract>(entity =>
         {
             entity.ToTable("Contract");
             entity.HasKey(e => e.Id);
         });
 
-        modelBuilder.Entity<StaffModel>(entity =>
+        modelBuilder.Entity<Staff>(entity =>
         {
             entity.ToTable("Staff");
             entity.HasKey(e => e.StaffNo);

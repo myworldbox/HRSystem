@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HRSystem.Domain.Entities;
 
-public partial class StaffModel
+public partial class Staff
 {
     [Key]
     public int StaffNo { get; set; }
@@ -26,5 +26,5 @@ public partial class StaffModel
     public string? PhoneNumber { get; set; }
 
     [InverseProperty("StaffNoNavigation")]
-    public virtual ICollection<ContractModel> Contracts { get; set; } = new List<ContractModel>();
+    public virtual ICollection<Contract> Contracts { get; set; } = new List<Contract>();
 }
