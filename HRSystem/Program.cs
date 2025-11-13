@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using HRSystem.Infrastructure.Data;
 using HRSystem.Infrastructure.Repositories;
 using HRSystem.Application.Helpers;
+using HRSystem.Data.Seeds;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -59,6 +60,7 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.SlidingExpiration = true;
 });
 
+builder.Services.AddScoped<MockDataSeed>();
 builder.Services.AddScoped<IStaffRepository, StaffRepository>();
 builder.Services.AddScoped<IContractRepository, ContractRepository>();
 builder.Services.AddAutoMapper(config => config.AddProfile<MappingHelper>());
@@ -82,45 +84,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
-
-// Seed roles and users
-using (var scope = app.Services.CreateScope())
-{
-    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
-
-    // Create roles
-    string[] roleNames = { "Clerical", "Supervisor", "Manager" };
-    foreach (var roleName in roleNames)
-    {
-        if (!await roleManager.RoleExistsAsync(roleName))
-        {
-            await roleManager.CreateAsync(new IdentityRole(roleName));
-        }
-    }
-
-    // Create users
-    var users = new[]
-    {
-        new { Username = "Clerk01", Password = "Password123!", Role = "Clerical" },
-        new { Username = "Clerk02", Password = "Password123!", Role = "Clerical" },
-        new { Username = "Super01", Password = "Password123!", Role = "Supervisor" },
-        new { Username = "Super02", Password = "Password123!", Role = "Supervisor" },
-        new { Username = "Mgr01", Password = "Password123!", Role = "Manager" }
-    };
-
-    foreach (var user in users)
-    {
-        if (await userManager.FindByNameAsync(user.Username) == null)
-        {
-            var identityUser = new IdentityUser { UserName = user.Username, Email = $"{user.Username}@example.com" };
-            var result = await userManager.CreateAsync(identityUser, user.Password);
-            if (result.Succeeded)
-            {
-                await userManager.AddToRoleAsync(identityUser, user.Role);
-            }
-        }
-    }
-}
 
 app.Run();
