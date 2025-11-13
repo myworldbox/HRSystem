@@ -11,7 +11,7 @@ using static HRSystem.Application.Helpers.ValidationHelper;
 
 namespace HRSystem.Application.ViewModels;
 
-public record DialogDto
+public record DialogViewModel
 {
     public Dialog dialog { get; set; }
     public string message { get; set; }

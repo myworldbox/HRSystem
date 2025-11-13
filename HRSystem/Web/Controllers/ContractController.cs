@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using HRSystem.Domain.Entities;
 using HRSystem.Infrastructure.Repositories;
 using HRSystem.Application.ViewModels;
+using HRSystem.Application.Dtos;
 
 namespace HRSystem.Web.Controllers;
 
@@ -39,8 +40,8 @@ public class ContractController : Controller
     [OutputCache(Duration = 60)]
     public async Task<IActionResult> Index(string searchString = "", int page = 1)
     {
-        DialogDto? dialogViewModel = !string.IsNullOrEmpty(_dialog)
-            ? JsonSerializer.Deserialize<DialogDto>(_dialog)
+        DialogViewModel? dialogViewModel = !string.IsNullOrEmpty(_dialog)
+            ? JsonSerializer.Deserialize<DialogViewModel>(_dialog)
             : null;
 
         var query = (await _contractRepository.GetAllAsync()).AsQueryable();
@@ -81,7 +82,7 @@ public class ContractController : Controller
 
     [HttpPost, ActionName("Create")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(ContractViewModel viewModel)
+    public async Task<IActionResult> Create(ContractDto viewModel)
     {
         if (!ModelState.IsValid)
         {
@@ -95,14 +96,14 @@ public class ContractController : Controller
             await _contractRepository.AddAsync(contract);
             await _contractRepository.SaveChangesAsync();
             _logger.LogInformation($"Created contract {contract.ContractNumber}");
-            var dialogViewModel = new DialogDto { dialog = Dialog.primary, message = $"Created contract {contract.ContractNumber}" };
+            var dialogViewModel = new DialogViewModel { dialog = Dialog.primary, message = $"Created contract {contract.ContractNumber}" };
             _dialog = JsonSerializer.Serialize(dialogViewModel);
             return RedirectToAction(nameof(Index));
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error creating contract");
-            var dialogViewModel = new DialogDto { dialog = Dialog.danger, message = $"Error:\n\n{ex.InnerException}" };
+            var dialogViewModel = new DialogViewModel { dialog = Dialog.danger, message = $"Error:\n\n{ex.InnerException}" };
             _dialog = JsonSerializer.Serialize(dialogViewModel);
             viewModel.ListStaffNo = new SelectList(await _staffRepository.GetAllAsync(), "StaffNo", "StaffNo", viewModel.StaffNo);
             return View("Create", viewModel);
@@ -121,7 +122,7 @@ public class ContractController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, ContractViewModel viewModel)
+    public async Task<IActionResult> Edit(int id, ContractDto viewModel)
     {
         if (id != viewModel.Id) return NotFound();
         ModelState.Remove("StartDate");
@@ -139,7 +140,7 @@ public class ContractController : Controller
             _mapper.Map(viewModel, contract);
             await _contractRepository.UpdateAsync(contract);
             await _contractRepository.SaveChangesAsync();
-            var dialogViewModel = new DialogDto { dialog = Dialog.primary, message = $"Edited contract {contract.ContractNumber}" };
+            var dialogViewModel = new DialogViewModel { dialog = Dialog.primary, message = $"Edited contract {contract.ContractNumber}" };
             _dialog = JsonSerializer.Serialize(dialogViewModel);
             return RedirectToAction(nameof(Index));
         }
@@ -170,13 +171,13 @@ public class ContractController : Controller
 
             await _contractRepository.DeleteAsync(id);
             await _contractRepository.SaveChangesAsync();
-            var dialogViewModel = new DialogDto { dialog = Dialog.primary, message = $"Deleted contract {contract.ContractNumber}" };
+            var dialogViewModel = new DialogViewModel { dialog = Dialog.primary, message = $"Deleted contract {contract.ContractNumber}" };
             _dialog = JsonSerializer.Serialize(dialogViewModel);
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error deleting contract");
-            var dialogViewModel = new DialogDto { dialog = Dialog.danger, message = $"Error:\n\n{ex.InnerException}" };
+            var dialogViewModel = new DialogViewModel { dialog = Dialog.danger, message = $"Error:\n\n{ex.InnerException}" };
             _dialog = JsonSerializer.Serialize(dialogViewModel);
         }
         return RedirectToAction(nameof(Index));

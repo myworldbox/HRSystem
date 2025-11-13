@@ -31,8 +31,8 @@ public class StaffController : Controller
 
     public async Task<IActionResult> Index()
     {
-        DialogDto? dialogViewModel = !string.IsNullOrEmpty(_dialog)
-            ? JsonSerializer.Deserialize<DialogDto>(_dialog)
+        DialogViewModel? dialogViewModel = !string.IsNullOrEmpty(_dialog)
+            ? JsonSerializer.Deserialize<DialogViewModel>(_dialog)
             : null;
 
         var staff = await _staffRepository.GetAllAsync();
@@ -69,14 +69,14 @@ public class StaffController : Controller
             await _staffRepository.AddAsync(staff);
             await _staffRepository.SaveChangesAsync();
             _logger.LogInformation($"Created staff {staff.StaffNo}");
-            var dialogViewModel = new DialogDto { dialog = Dialog.primary, message = $"Created staff {staff.StaffNo}" };
+            var dialogViewModel = new DialogViewModel { dialog = Dialog.primary, message = $"Created staff {staff.StaffNo}" };
             _dialog = JsonSerializer.Serialize(dialogViewModel);
             return RedirectToAction(nameof(Index));
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error creating staff");
-            var dialogViewModel = new DialogDto { dialog = Dialog.danger, message = $"Error:\n\n{ex.InnerException}" };
+            var dialogViewModel = new DialogViewModel { dialog = Dialog.danger, message = $"Error:\n\n{ex.InnerException}" };
             _dialog = JsonSerializer.Serialize(dialogViewModel);
             return View(viewModel);
         }
@@ -112,14 +112,14 @@ public class StaffController : Controller
             await _staffRepository.UpdateAsync(staff);
             await _staffRepository.SaveChangesAsync();
             _logger.LogInformation($"Edited staff {id}");
-            var dialogViewModel = new DialogDto { dialog = Dialog.primary, message = $"Edited staff {staff.StaffNo}" };
+            var dialogViewModel = new DialogViewModel { dialog = Dialog.primary, message = $"Edited staff {staff.StaffNo}" };
             _dialog = JsonSerializer.Serialize(dialogViewModel);
             return RedirectToAction(nameof(Index));
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error editing staff");
-            var dialogViewModel = new DialogDto { dialog = Dialog.danger, message = $"Error:\n\n{ex.InnerException}" };
+            var dialogViewModel = new DialogViewModel { dialog = Dialog.danger, message = $"Error:\n\n{ex.InnerException}" };
             _dialog = JsonSerializer.Serialize(dialogViewModel);
             return View(viewModel);
         }
@@ -148,13 +148,13 @@ public class StaffController : Controller
             await _staffRepository.DeleteAsync(id);
             await _staffRepository.SaveChangesAsync();
             _logger.LogInformation($"Deleted staff {staff.StaffNo}");
-            var dialogViewModel = new DialogDto { dialog = Dialog.primary, message = $"Deleted staff {staff.StaffNo}" };
+            var dialogViewModel = new DialogViewModel { dialog = Dialog.primary, message = $"Deleted staff {staff.StaffNo}" };
             _dialog = JsonSerializer.Serialize(dialogViewModel);
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error deleting staff");
-            var dialogViewModel = new DialogDto { dialog = Dialog.danger, message = $"Error:\n\n{ex.InnerException}" };
+            var dialogViewModel = new DialogViewModel { dialog = Dialog.danger, message = $"Error:\n\n{ex.InnerException}" };
             _dialog = JsonSerializer.Serialize(dialogViewModel);
         }
         return RedirectToAction(nameof(Index));
