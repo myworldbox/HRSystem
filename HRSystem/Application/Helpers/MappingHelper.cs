@@ -1,6 +1,7 @@
 using AutoMapper;
 using HRSystem.Domain.Entities;
 using HRSystem.Application.ViewModels;
+using HRSystem.Application.Dtos;
 
 namespace HRSystem.Application.Helpers;
 
@@ -8,8 +9,7 @@ public class MappingHelper : Profile
 {
     public MappingHelper()
     {
-        CreateMap<Staff, StaffViewModel>().ReverseMap();
-
+        CreateMap<Staff, StaffDto>().ReverseMap();
         CreateMap<Staff, StaffViewModel>()
             .AfterMap((src, dest) =>
             {
@@ -22,6 +22,7 @@ public class MappingHelper : Profile
             .ReverseMap()
             .ForMember(dest => dest.Address, opt => opt.MapFrom(src => AddressHelper.CombineAddress(src.Address1, src.Address2, src.Address3, src.Address4)));
 
+        CreateMap<Contract, ContractDto>().ReverseMap();
         CreateMap<Contract, ContractViewModel>().ReverseMap();
     }
 }

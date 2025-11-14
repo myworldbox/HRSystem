@@ -5,33 +5,9 @@ namespace HRSystem.Domain;
 
 public class Enums
 {
+    public enum Role { Staff, Clerk, Supervisor, Manager, Admin }
 
-    public enum Status
-    {
-        [Display(Name = "Contract Draft")]
-        ContractDraft,
-        [Display(Name = "Contract Completed")]
-        ContractCompleted,
-        [Display(Name = "Payroll Completed")]
-        PayrollCompleted,
-        Terminated
-    }
-
-    public enum Position
-    {
-        Clerk,
-        Teacher,
-        Principal,
-        [Display(Name = "HR Assistant")]
-        HRAssistant
-    }
-
-    public enum Role
-    {
-        Clerical,
-        Supervisor,
-        Manager
-    }
+    public enum Status { Draft, Confirmed, Deleted }
 
     public enum Dialog
     {
