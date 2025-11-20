@@ -1,9 +1,11 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
+using HRSystem.Application.Helpers;
+using HRSystem.Data;
 using HRSystem.Infrastructure.Data;
 using HRSystem.Infrastructure.Repositories;
-using HRSystem.Application.Helpers;
-using HRSystem.Data.Seeds;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using System;
+using static HRSystem.Domain.Enums;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,15 +18,40 @@ builder.Services.AddControllersWithViews()
         options.ViewLocationFormats.Add("/Web/Views/Shared/{0}.cshtml");
     });
 
-builder.Services.AddDbContext<HRSystemContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("HRSystemContext")));
+var provider = builder.Configuration["AppDbContext"];
+string dbContext = $"{provider}.AppDbContext";
+Database db = (Database)Enum.Parse(typeof(Database), provider, ignoreCase: true);
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    switch (db)
+    {
+        case Database.PostgreSQL:
+            options.UseNpgsql(builder.Configuration.GetConnectionString(dbContext));
+            break;
+        case Database.SqlServer:
+            options.UseSqlServer(builder.Configuration.GetConnectionString(dbContext));
+            break;
+        case Database.MySQL:
+            options.UseMySql(
+                builder.Configuration.GetConnectionString(dbContext),
+                ServerVersion.AutoDetect(builder.Configuration.GetConnectionString(dbContext)));
+            break;
+        case Database.Oracle:
+            options.UseOracle(builder.Configuration.GetConnectionString(dbContext));
+            break;
+        case Database.SQLite:
+            options.UseSqlite(builder.Configuration.GetConnectionString(dbContext));
+            break;
+    }
+});
 
 // Configure Identity with roles
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
 })
-.AddEntityFrameworkStores<HRSystemContext>()
+.AddEntityFrameworkStores<AppDbContext>()
 .AddDefaultTokenProviders()
 .AddDefaultUI();
 

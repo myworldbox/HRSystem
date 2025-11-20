@@ -6,13 +6,13 @@ using HRSystem.Domain.Entities;
 
 namespace HRSystem.Infrastructure.Data;
 
-public partial class HRSystemContext : IdentityDbContext
+public partial class AppDbContext : IdentityDbContext
 {
-    public HRSystemContext()
+    public AppDbContext()
     {
     }
 
-    public HRSystemContext(DbContextOptions<HRSystemContext> options)
+    public AppDbContext(DbContextOptions<AppDbContext> options)
         : base(options)
     {
     }
@@ -20,9 +20,6 @@ public partial class HRSystemContext : IdentityDbContext
     public virtual DbSet<Contract> Contract { get; set; }
 
     public virtual DbSet<Staff> Staff { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Name=HRSystemContext");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

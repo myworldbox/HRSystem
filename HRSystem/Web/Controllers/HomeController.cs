@@ -8,7 +8,7 @@ namespace HRSystem.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly HRSystemContext _context;
+        private readonly AppDbContext _context;
 
         public HomeController(ILogger<HomeController> logger)
         {

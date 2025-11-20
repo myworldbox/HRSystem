@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using static HRSystem.Domain.Enums;
 
-namespace HRSystem.Data.Seeds
+namespace HRSystem.Data
 {
     public class MockDataSeed
     {
