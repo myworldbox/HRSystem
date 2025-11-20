@@ -1,64 +1,89 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System;
-using System.Threading.Tasks;
+﻿using HRSystem.Areas.Identity.Pages.Account;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
+using static HRSystem.Domain.Enums;
 
 namespace HRSystem.Data.Seeds
 {
-    public class MockDataSeed(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+    public class MockDataSeed
     {
-        private readonly UserManager<IdentityUser> _userManager = userManager;
-        private readonly RoleManager<IdentityRole> _roleManager = roleManager;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+
+        public MockDataSeed(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+        {
+            _userManager = userManager;
+            _roleManager = roleManager;
+        }
 
         public async Task SeedAsync()
         {
-            try
+            // Seed roles
+            List<string> roleNames = Enum.GetNames(typeof(Role)).ToList();
+            foreach (var roleName in roleNames)
             {
-                // Create roles
-                string[] roleNames = { "Clerical", "Supervisor", "Manager" };
-                foreach (var roleName in roleNames)
+                if (!await _roleManager.RoleExistsAsync(roleName))
                 {
-                    if (!await _roleManager.RoleExistsAsync(roleName))
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole(roleName));
-                    }
-                }
-
-                // Create users
-                var users = new[]
-                {
-                    new { Username = "Clerk01", Password = "Password123!", Role = "Clerical" },
-                    new { Username = "Clerk02", Password = "Password123!", Role = "Clerical" },
-                    new { Username = "Super01", Password = "Password123!", Role = "Supervisor" },
-                    new { Username = "Super02", Password = "Password123!", Role = "Supervisor" },
-                    new { Username = "Mgr01", Password = "Password123!", Role = "Manager" }
-                };
-
-                foreach (var user in users)
-                {
-                    if (await _userManager.FindByNameAsync(user.Username) == null)
-                    {
-                        var identityUser = new IdentityUser
-                        {
-                            UserName = user.Username,
-                            Email = $"{user.Username}@example.com"
-                        };
-                        var result = await _userManager.CreateAsync(identityUser, user.Password);
-                        if (result.Succeeded)
-                        {
-                            await _userManager.AddToRoleAsync(identityUser, user.Role);
-                        }
-                        else
-                        {
-                            throw new Exception($"Failed to create user {user.Username}: {string.Join(", ", result.Errors.Select(e => e.Description))}");
-                        }
-                    }
+                    await _roleManager.CreateAsync(new IdentityRole(roleName));
                 }
             }
-            catch (Exception ex)
+
+            string user1 = "clerk01";
+            string user2 = "clerk02";
+            string user3 = "super01";
+            string user4 = "super02"; // Fixed duplicate (was "super01")
+            string user5 = "mgr01";
+            string user6 = "admin01";
+            string password = "Pw@12345";
+
+            var staffs = new RegisterModel.InputModel[]
             {
-                // In production, use a proper logger
-                Console.WriteLine($"Error during mock seeding: {ex.Message}");
-                throw;
+                new RegisterModel.InputModel { Email = $"{user1}@gmail.com", Password = password, ConfirmPassword = password },
+                new RegisterModel.InputModel { Email = $"{user2}@gmail.com", Password = password, ConfirmPassword = password },
+                new RegisterModel.InputModel { Email = $"{user3}@gmail.com", Password = password, ConfirmPassword = password },
+                new RegisterModel.InputModel { Email = $"{user4}@gmail.com", Password = password, ConfirmPassword = password },
+                new RegisterModel.InputModel { Email = $"{user5}@gmail.com", Password = password, ConfirmPassword = password },
+                new RegisterModel.InputModel { Email = $"{user6}@gmail.com", Password = password, ConfirmPassword = password }
+            };
+
+            var users = new[] {
+                new { staff = staffs[0], Role = nameof(Role.Clerk), Accessible = new[] { user1 } },
+                new { staff = staffs[1], Role = nameof(Role.Clerk), Accessible = new[] { user2 } },
+                new { staff = staffs[2], Role = nameof(Role.Supervisor), Accessible = new[] { user1 } },
+                new { staff = staffs[3], Role = nameof(Role.Supervisor), Accessible = new[] { user1, user2 } },
+                new { staff = staffs[4], Role = nameof(Role.Manager), Accessible = new[] { user1, user2, user3, user4, user5 } },
+                new { staff = staffs[5], Role = nameof(Role.Admin), Accessible = Array.Empty<string>() }
+            };
+
+            foreach (var u in users)
+            {
+                var email = u.staff.Email;
+                var existingUser = await _userManager.FindByEmailAsync(email);
+
+                if (existingUser == null)
+                {
+                    var newUser = new IdentityUser
+                    {
+                        UserName = email,
+                        Email = email,
+                        EmailConfirmed = true
+                    };
+
+                    var result = await _userManager.CreateAsync(newUser, password);
+                    if (result.Succeeded)
+                    {
+                        await _userManager.AddToRoleAsync(newUser, u.Role);
+
+                        foreach (var account in u.Accessible)
+                        {
+                            await _userManager.AddClaimAsync(newUser, new Claim("AccessibleAccount", account));
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Failed to create user {email}: {string.Join(", ", result.Errors.Select(e => e.Description))}");
+                    }
+                }
             }
         }
     }

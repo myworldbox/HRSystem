@@ -28,9 +28,10 @@ public class Enums
 
     public enum Role
     {
-        Clerical,
+        Clerk,
         Supervisor,
-        Manager
+        Manager,
+        Admin
     }
 
     public enum Dialog
