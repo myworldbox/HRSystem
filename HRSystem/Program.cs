@@ -67,6 +67,12 @@ builder.Services.AddAutoMapper(config => config.AddProfile<MappingHelper>());
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var seeder = scope.ServiceProvider.GetRequiredService<MockDataSeed>();
+    await seeder.SeedAsync();
+}
+
 // Configure the HTTP request pipeline
 if (!app.Environment.IsDevelopment())
 {
